@@ -1,11 +1,31 @@
 {
-  "name": "shevi-console",
   "private": true,
+  "name": "@shevi/console-workspace",
+  "version": "0.1.0",
+  "description": "A simple command-line interface (CLI) tool designed to elevate the developer experience for front-end repo maintainers.",
+  "keywords": [
+    "CLI",
+    "tool",
+    "frontend",
+    "developer",
+    "console",
+    "enhancement"
+  ],
+  "homepage": "https://github.com/brionmario/shevi-console#readme",
+  "bugs": {
+    "url": "https://github.com/brionmario/shevi-console/issues"
+  },
+  "license": "MIT",
+  "author": "Brion Mario",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brionmario/shevi-console"
+  },
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,cjs,css,json,md,mdx,yml}\"",
+    "lint": "turbo lint"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
