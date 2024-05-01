@@ -1,3 +1,7 @@
 {
-  "extends": "@repo/typescript-config/base.json"
+  "root": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {}
+  }
 }
