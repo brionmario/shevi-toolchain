@@ -1,0 +1,31 @@
+{
+  "name": "@shevi/console",
+  "version": "0.1.0",
+  "description": "A simple command-line interface (CLI) tool designed to elevate the developer experience for front-end repo maintainers.",
+  "keywords": [
+    "CLI",
+    "tool",
+    "frontend",
+    "developer",
+    "console",
+    "enhancement"
+  ],
+  "homepage": "https://github.com/brionmario/shevi-console/tree/main/packages/console#readme",
+  "bugs": {
+    "url": "https://github.com/brionmario/shevi-console/issues"
+  },
+  "license": "MIT",
+  "author": "Brion Mario",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brionmario/shevi-console",
+    "directory": "packages/console"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@brionmario/eslint-plugin": "^0.2.9",
+    "@brionmario/prettier-config": "^0.1.0",
+    "eslint": "^9.1.1",
+    "prettier": "^3.2.5"
+  }
+}
