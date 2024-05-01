@@ -28,7 +28,10 @@
     "lint": "turbo lint"
   },
   "devDependencies": {
+    "@brionmario/eslint-plugin": "^0.2.9",
     "@brionmario/prettier-config": "^0.1.0",
+    "eslint": "^9.1.1",
+    "eslint-config-turbo": "^1.13.3",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
