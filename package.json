@@ -28,8 +28,7 @@
     "lint": "turbo lint"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@brionmario/prettier-config": "^0.1.0",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
