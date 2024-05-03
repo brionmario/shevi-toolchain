@@ -41,5 +41,16 @@ module.exports = {
     project: [path.resolve(__dirname, 'tsconfig.eslint.json')],
   },
   plugins: ['@brionmario'],
-  rules: {},
+  rules: {
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '**/setup-test.ts', // Allow devDependencies in test setup files
+          '**/*.test.js', // Allow devDependencies in test files
+          '**/*.spec.js', // Allow devDependencies in spec files
+        ],
+      },
+    ],
+  },
 };

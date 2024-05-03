@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@shevi/console-workspace",
+  "name": "@shevi/toolschain-workspace",
   "version": "0.1.0",
   "description": "A simple command-line interface (CLI) tool designed to elevate the developer experience for front-end repo maintainers.",
   "keywords": [
@@ -8,18 +8,20 @@
     "tool",
     "frontend",
     "developer",
+    "toolschain",
     "console",
+    "logger",
     "enhancement"
   ],
-  "homepage": "https://github.com/brionmario/shevi-console#readme",
+  "homepage": "https://github.com/brionmario/shevi-toolschain#readme",
   "bugs": {
-    "url": "https://github.com/brionmario/shevi-console/issues"
+    "url": "https://github.com/brionmario/shevi-toolschain/issues"
   },
   "license": "MIT",
   "author": "Brion Mario",
   "repository": {
     "type": "git",
-    "url": "https://github.com/brionmario/shevi-console"
+    "url": "https://github.com/brionmario/shevi-toolschain"
   },
   "scripts": {
     "build": "turbo build",
