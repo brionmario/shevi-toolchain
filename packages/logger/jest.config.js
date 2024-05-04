@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-const jestConfig = {
+module.exports = {
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {},
   preset: 'ts-jest',
@@ -33,10 +33,9 @@ const jestConfig = {
     '^.+\\.tsx?$': [
       'ts-jest',
       {
+        tsconfig: 'tsconfig.spec.json',
         useESM: true,
       },
     ],
   },
 };
-
-export default jestConfig;
