@@ -23,83 +23,91 @@
  */
 
 /**
- * Interface for the logger methods
+ * Logger class for logging messages.
  */
-interface ILogger {
-  /**
-   * Log a debug message
-   * @param message The message to log
-   */
-  debug(message: string): void;
+class Logger {
+  private pluginManager: PluginManager;
+  private category: string;
 
   /**
-   * Log an error message
-   * @param message The message to log
+   * Constructs a new Logger instance.
+   * @param name The name of the category to log to.
    */
-  error(message: string): void;
-
-  /**
-   * Log an info message
-   * @param message The message to log
-   */
-  info(message: string): void;
-
-  /**
-   * Log a warning message
-   * @param message The message to log
-   */
-  warn(message: string): void;
-}
-
-/**
- * Implementation of ILogger using a logger backend library
- */
-class Logger implements ILogger {
-  /**
-   * The actual logger backend library, e.g. log4js, winston, etc.
-   */
-  private loggerBackend: any;
-
-  /**
-   * Create a new instance of Logger
-   * @param backend The logger backend library to use
-   */
-  constructor(backend: any) {
-    this.loggerBackend = backend;
+  constructor(name: string) {
+    if (!name) {
+      throw new Error('No category provided.');
+    }
+    this.category = name;
+    this.pluginManager = new PluginManager();
   }
 
   /**
-   * Log a debug message
-   * @param message The message to log
+   * Gets the log level for the logger.
+   * @returns The log level.
+   */
+  get level(): string {
+    // Implementation to get log level
+    return 'info'; // Placeholder implementation
+  }
+
+  /**
+   * Sets the log level for the logger.
+   * @param level The log level to set.
+   */
+  set level(level: string) {
+    // Implementation to set log level
+    // Example: this.logger.setLevel(level);
+  }
+
+  /**
+   * Logs a message at the specified log level.
+   * @param level The log level.
+   * @param message The log message.
+   */
+  log(level: string, message: string): void {
+    this.pluginManager.handleLog(level, message);
+    console.log(`[${level.toUpperCase()}] ${message}`);
+  }
+
+  /**
+   * Logs a debug message.
+   * @param message The debug message.
    */
   debug(message: string): void {
-    this.loggerBackend.debug(message);
+    this.log('debug', message);
   }
 
   /**
-   * Log an error message
-   * @param message The message to log
+   * Logs a trace message.
+   * @param message The trace message.
    */
-  error(message: string): void {
-    this.loggerBackend.error(message);
+  trace(message: string): void {
+    this.log('trace', message);
   }
 
   /**
-   * Log an info message
-   * @param message The message to log
+   * Logs an info message.
+   * @param message The info message.
    */
   info(message: string): void {
-    this.loggerBackend.info(message);
+    this.log('info', message);
   }
 
   /**
-   * Log a warning message
-   * @param message The message to log
+   * Logs a warning message.
+   * @param message The warning message.
    */
   warn(message: string): void {
-    this.loggerBackend.warn(message);
+    this.log('warn', message);
+  }
+
+  /**
+   * Logs an error message.
+   * @param message The error message.
+   */
+  error(message: string): void {
+    this.log('error', message);
   }
 }
 
 export default Logger;
-export {ILogger};
