@@ -44,12 +44,12 @@ module.exports = [
     output: [
       {
         file: pkg.main,
-        format: 'cjs',
+        format: 'esm',
         sourcemap: true,
       },
       {
         file: pkg.module,
-        format: 'esm',
+        format: 'cjs',
         sourcemap: true,
       },
     ],
