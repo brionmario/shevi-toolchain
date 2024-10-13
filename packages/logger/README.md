@@ -74,6 +74,7 @@ const logger = new Logger({
 
 // Log a message
 logger.info('This log will be handled by the custom plugin');
+```
 
 ## License
 
