@@ -39,7 +39,7 @@ const MERGED_TYPINGS_OUTPUT = path.resolve(__dirname, path.join('dist', 'index.d
 module.exports = [
   {
     cache: false,
-    input: 'src/index.ts',
+    input: 'src/public-api.ts',
     output: [
       {
         file: pkg.main,
