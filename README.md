@@ -1,81 +1,41 @@
-# Turborepo starter
+<h1 align="center" style="color: #343a40;margin: 20px 0">
+  Shevi Toolchain
+</h1>
 
-This is an official starter Turborepo.
+<p align="center" style="font-size: 1.2rem;">Level up your
+<strong style="color: #47EBD8">developer experience</strong>
+ today!</p>
 
-## Using this example
+<div align="center">
+  <a href="https://github.com/brionmario/shevi-toolchain/actions/workflows/release.yml"><img src="https://github.com/brionmario/shevi-toolchain/actions/workflows/release.yml/badge.svg" alt="🚀 Release"></a>
+  <a href="https://github.com/brionmario/shevi-toolchain/actions/workflows/deploy-gh-pages.yaml"><img src="https://github.com/brionmario/shevi-toolchain/actions/workflows/deploy-gh-pages.yaml/badge.svg" alt="☄️ Deploy Documentation"></a>
+  <a href="https://github.com/brionmario/shevi-toolchain/actions/workflows/builder.yml"><img src="https://img.shields.io/github/actions/workflow/status/brionmario/shevi-toolchain/build.yml?color=red&label=%F0%9F%A7%B1%20Build" alt="🧱 Builder"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
+</div>
 
-Run the following command:
+<br>
 
-```sh
-npx create-turbo@latest
-```
+Oxygen UI is the underlying design system that powers WSO2's core products like Asgardeo, Choreo, WSO2 Identity Server, etc.
 
-## What's inside?
+This repository contains the source code of the key components that works together for building resilient UIs.
 
-This Turborepo includes the following packages/apps:
+## Packages
 
-### Apps and Packages
+| Package | Description | Version |
+| --- | --- | --- |
+| [`@shevi/logger 💖`](./packages/logger) | A pluggable logging utility for frontend developers  | ![npm](https://img.shields.io/npm/v/@shevi/logger?color=blue) |
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Contributing
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+Please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for detailed instructions on how to contribute to this project.
 
-### Utilities
+## 👨‍💻 Contributors
 
-This Turborepo has some additional tools already setup for you:
+<a href="https://github.com/brionmario/shevi-toolchain/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=brionmario/shevi-toolchain" />
+</a>
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## License
 
-### Build
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)

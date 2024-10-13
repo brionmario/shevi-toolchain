@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022, Brion Mario.
+ * Copyright (c) 2024, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,61 +22,42 @@
  * SOFTWARE.
  */
 
-import {LogLevel} from './types/LogLevel';
-import {LoggerPlugin} from './types/LoggerPlugin';
+import {LogLevel} from './LogLevel';
 
-export default class Logger {
-  private plugin: LoggerPlugin;
-
-  constructor(plugin: LoggerPlugin) {
-    this.plugin = plugin;
-  }
-
+export interface LoggerPlugin {
   /**
-   * Logs a message at the specified log level.
-   * @param level - Log level (info, warn, error, etc.)
+   * Optional debug level logging.
    * @param message - The log message
    * @param args - Additional arguments to log
    */
-  log(level: LogLevel, message: string, ...args: unknown[]): void {
-    this.plugin.log(level, message, ...args);
-  }
+  debug?(message: string, ...args: unknown[]): void;
 
   /**
-   * Logs an info message.
+   * Error level logging.
    * @param message - The log message
    * @param args - Additional arguments to log
    */
-  info(message: string, ...args: unknown[]): void {
-    this.plugin.info(message, ...args);
-  }
+  error(message: string, ...args: unknown[]): void;
 
   /**
-   * Logs a warning message.
+   * Info level logging.
    * @param message - The log message
    * @param args - Additional arguments to log
    */
-  warn(message: string, ...args: unknown[]): void {
-    this.plugin.warn(message, ...args);
-  }
+  info(message: string, ...args: unknown[]): void;
 
   /**
-   * Logs an error message.
+   * General log function for any level of logging.
+   * @param level - The log level
    * @param message - The log message
    * @param args - Additional arguments to log
    */
-  error(message: string, ...args: unknown[]): void {
-    this.plugin.error(message, ...args);
-  }
+  log(level: LogLevel, message: string, ...args: unknown[]): void;
 
   /**
-   * Logs a debug message (optional for some plugins).
+   * Warn level logging.
    * @param message - The log message
    * @param args - Additional arguments to log
    */
-  debug(message: string, ...args: unknown[]): void {
-    if (this.plugin.debug) {
-      this.plugin.debug(message, ...args);
-    }
-  }
+  warn(message: string, ...args: unknown[]): void;
 }

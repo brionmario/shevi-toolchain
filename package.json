@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@shevi/toolschain-workspace",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "A simple command-line interface (CLI) tool designed to elevate the developer experience for front-end repo maintainers.",
   "keywords": [
     "CLI",

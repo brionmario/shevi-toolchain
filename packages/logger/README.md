@@ -1,8 +1,11 @@
 <p align="center" style="color: #343a40">
-  <h1 align="center">@shevi/logger</h1>
+  <h1 align="center">@shevi/logger 💖</h1>
 </p>
-<p align="center" style="font-size: 1.2rem;">Simple logger package for Oxygen UI.</p>
 
+<p align="center" style="font-size: 1.2rem;">A
+<strong style="color: #F0F">pluggable</strong>
+ logging utility for frontend developers.</p>
+ 
 <div align="center">
   <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@shevi/logger">
   <img alt="npm" src="https://img.shields.io/npm/dw/@shevi/logger">
@@ -28,45 +31,50 @@ yarn add @shevi/logger
 
 Here's an example of how to use `@shevi/logger`:
 
-```js
-const {logger} = require('@shevi/logger');
+### Basic Usage
 
-logger.log('======  🧱 Started Building Primitives 🧱  ======');
-logger.success(pkg.name, `🏆 Successfully wrote the transformations.`);
-logger.info(pkg.name, '💭 Processing the design tokens');
-logger.warn(`wrote ${file} with ${count} exports`);
-logger.error(logMessageOne, logMessageTwo);
+```ts
+import Logger from '@shevi/logger';
+
+// Initialize the logger
+const logger = new Logger({
+  level: 'info', // Logging level (e.g., 'info', 'warn', 'error')
+  prefix: '[App]', // Optional prefix for each log message
+  format: 'json',  // Optional format (e.g., 'text', 'json')
+});
+
+// Log messages at different levels
+logger.info('This is an info message');
+logger.warn('This is a warning message');
+logger.error('This is an error message');
+
+// Example with dynamic data
+logger.info('User logged in', { userId: '1234' });
 ```
 
-## API
+### Advanced Usage with Plugins
 
-### logger.error(...args: Array<any>): void
+You can extend the logger by adding custom plugins. Here's how you can add a plugin to handle log storage:
 
-Logs an error message to the console. Accepts any number of arguments.
+```ts
+import Logger from '@shevi/logger';
 
-### logger.info(...args: Array<any>): void
+// Define a custom plugin
+const customPlugin = {
+  handle(log) {
+    // Save the log to a database or send it to an external service
+    console.log('Custom plugin handling log:', log);
+  },
+};
 
-Logs an info message to the console. Accepts any number of arguments.
+// Initialize the logger with the plugin
+const logger = new Logger({
+  plugins: [customPlugin],
+});
 
-### logger.log(...args: Array<any>): void
-
-Logs a message to the console. Accepts any number of arguments.
-
-### logger.success(...args: Array<any>): void
-
-Logs a success message to the console. Accepts any number of arguments.
-
-### logger.warn(...args: Array<any>): void
-
-Logs a warning message to the console. Accepts any number of arguments.
-
-## Contributing
-
-Want to report a bug, contribute some code, or improve the documentation?
-
-Excellent! Read up on our [guidelines for contributing](../../CONTRIBUTING.md) to get started.
+// Log a message
+logger.info('This log will be handled by the custom plugin');
 
 ## License
 
-Licenses this source under the Apache License, Version 2.0 [LICENSE](../../LICENSE), You may not use this file except in
-compliance with the License.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

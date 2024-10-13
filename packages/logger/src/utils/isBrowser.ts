@@ -22,11 +22,21 @@
  * SOFTWARE.
  */
 
-export {default as Logger} from './Logger';
+const isWindow: boolean = globalThis.window?.document !== undefined;
 
-export * from './types/LogLevel';
-export * from './types/LoggerPlugin';
+const isJsDom: boolean = globalThis.navigator?.userAgent?.includes('jsdom') === true;
 
-export {default as ConsoleLoggerPlugin} from './plugins/ConsoleLoggerPlugin';
-export {default as DefaultLoggerPlugin} from './plugins/DefaultLoggerPlugin';
-export {default as ServerLoggerPlugin} from './plugins/ServerLoggerPlugin';
+const isWebWorker: boolean = typeof WorkerGlobalScope !== 'undefined' && globalThis instanceof WorkerGlobalScope;
+
+const isDedicatedWorker: boolean =
+  typeof DedicatedWorkerGlobalScope !== 'undefined' && globalThis instanceof DedicatedWorkerGlobalScope;
+
+const isSharedWorker: boolean =
+  typeof SharedWorkerGlobalScope !== 'undefined' && globalThis instanceof SharedWorkerGlobalScope;
+
+const isServiceWorker: boolean =
+  typeof ServiceWorkerGlobalScope !== 'undefined' && globalThis instanceof ServiceWorkerGlobalScope;
+
+const isBrowser: boolean = isWindow || isJsDom || isWebWorker || isDedicatedWorker || isSharedWorker || isServiceWorker;
+
+export default isBrowser;
