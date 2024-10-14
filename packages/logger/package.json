@@ -32,7 +32,7 @@
     "typecheck": "tsc --noemit -p tsconfig.json"
   },
   "devDependencies": {
-    "@brionmario/eslint-plugin": "^0.2.9",
+    "@brionmario/eslint-plugin": "^0.3.4",
     "@brionmario/prettier-config": "^0.1.0",
     "@jest/globals": "^29.7.0",
     "@rollup/plugin-commonjs": "^25.0.7",

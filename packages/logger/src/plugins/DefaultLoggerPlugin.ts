@@ -28,7 +28,6 @@ import isBrowser from '../utils/isBrowser';
 import isServer from '../utils/isServer';
 import ConsoleLoggerPlugin from './ConsoleLoggerPlugin';
 
-
 export default class ServerLoggerPlugin implements LoggerPlugin {
   private plugin: LoggerPlugin;
 
