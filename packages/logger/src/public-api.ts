@@ -22,4 +22,11 @@
  * SOFTWARE.
  */
 
-export * from './public-api';
+export {default as Logger} from './Logger';
+
+export * from './types/LogLevel';
+export * from './types/LoggerPlugin';
+
+export {default as ConsoleLoggerPlugin} from './plugins/ConsoleLoggerPlugin';
+export {default as DefaultLoggerPlugin} from './plugins/DefaultLoggerPlugin';
+export {default as ServerLoggerPlugin} from './plugins/ServerLoggerPlugin';
