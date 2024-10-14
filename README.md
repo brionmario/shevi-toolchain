@@ -15,9 +15,7 @@
 
 <br>
 
-Oxygen UI is the underlying design system that powers WSO2's core products like Asgardeo, Choreo, WSO2 Identity Server, etc.
-
-This repository contains the source code of the key components that works together for building resilient UIs.
+A set of tools and utilities to help frontend developers build better applications. The Shevi Toolchain is designed to improve the developer experience by providing a collection of utilities that can be used across different projects.
 
 ## Packages
 
