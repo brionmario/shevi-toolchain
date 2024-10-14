@@ -48,7 +48,7 @@ module.exports = [
         sourcemap: true,
       },
       {
-        file: pkg.module,
+        file: pkg.commonjs,
         format: 'cjs',
         sourcemap: true,
       },

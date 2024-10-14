@@ -25,6 +25,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "clean:dist": "rimraf dist",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,cjs,css,json,md,mdx,yml}\"",
     "lint": "eslint .",
     "test": "NODE_OPTIONS=--experimental-vm-modules pnpm jest --passWithNoTests",
@@ -45,6 +46,7 @@
     "jest-mock-extended": "^3.0.7",
     "log4js": "^6.9.1",
     "prettier": "^3.2.5",
+    "rimraf": "^6.0.1",
     "rollup": "^4.17.2",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
