@@ -9,7 +9,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write # For pushing changes
+  pull-requests: write # For creating pull requests
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
