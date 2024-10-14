@@ -29,6 +29,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,cjs,css,json,md,mdx,yml}\"",
     "lint": "turbo lint",
     "publish:packages": "changeset publish",
+    "test": "turbo test",
     "typecheck": "turbo typecheck",
     "version:packages": "changeset version && pnpm install --lockfile-only"
   },

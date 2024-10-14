@@ -25,6 +25,12 @@
         "^lint"
       ]
     },
+    "test": {
+      "outputs": [
+        "coverage/**"
+      ],
+      "dependsOn": []
+    },
     "typecheck": {
       "dependsOn": [
         "^typecheck"
