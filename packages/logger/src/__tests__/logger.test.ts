@@ -22,44 +22,87 @@
  * SOFTWARE.
  */
 
-import Logger, {ILogger} from '../logger';
+import Logger from '../Logger';
+import {LoggerPlugin} from '../types/LoggerPlugin';
+import {LogLevel} from '../types/LogLevel';
 
-describe('Logger', () => {
-  let mockBackend: any;
-  let logger: ILogger;
+describe('Logger', (): void => {
+  let mockPlugin: LoggerPlugin;
+  let logger: Logger;
 
-  beforeEach(() => {
-    mockBackend = {
+  beforeEach((): void => {
+    mockPlugin = {
       debug: jest.fn(),
       error: jest.fn(),
       info: jest.fn(),
+      log: jest.fn(),
       warn: jest.fn(),
     };
-    logger = new Logger(mockBackend);
+    logger = new Logger(mockPlugin);
   });
 
-  it('should call the debug method on the backend with the correct message', () => {
+  afterEach((): void => {
+    // Reset mocks after each test
+    jest.restoreAllMocks();
+  });
+
+  it('should call the debug method on the plugin with the correct message', (): void => {
     const message: string = 'debug message';
+    const debugSpy: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]> = jest
+      .spyOn(mockPlugin, 'debug')
+      .mockImplementation(() => {});
+
     // eslint-disable-next-line testing-library/no-debugging-utils
     logger.debug(message);
-    expect(mockBackend.debug).toHaveBeenCalledWith(message);
+    expect(debugSpy).toHaveBeenCalledWith(message);
+    debugSpy.mockRestore();
   });
 
-  it('should call the error method on the backend with the correct message', () => {
+  it('should call the error method on the plugin with the correct message', (): void => {
     const message: string = 'error message';
+    const errorSpy: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]> = jest
+      .spyOn(mockPlugin, 'error')
+      .mockImplementation(() => {});
+
     logger.error(message);
-    expect(mockBackend.error).toHaveBeenCalledWith(message);
+    expect(errorSpy).toHaveBeenCalledWith(message);
+    errorSpy.mockRestore();
   });
 
-  it('should call the info method on the backend with the correct message', () => {
+  it('should call the info method on the plugin with the correct message', (): void => {
     const message: string = 'info message';
+    const infoSpy: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]> = jest
+      .spyOn(mockPlugin, 'info')
+      .mockImplementation(() => {});
+
     logger.info(message);
-    expect(mockBackend.info).toHaveBeenCalledWith(message);
+    expect(infoSpy).toHaveBeenCalledWith(message);
+    infoSpy.mockRestore();
   });
 
-  it('should call the warn method on the backend with the correct message', () => {
+  it('should call the log method on the plugin with the correct message', (): void => {
+    const message: string = 'log message';
+    const logLevels: {level: LogLevel}[] = [{level: 'info'}, {level: 'warn'}, {level: 'error'}, {level: 'debug'}];
+
+    logLevels.forEach(({level}: {level: LogLevel}): void => {
+      const logSpy: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]> = jest
+        .spyOn(mockPlugin, 'log')
+        .mockImplementation(() => {});
+
+      logger.log(level, message);
+      expect(logSpy).toHaveBeenCalledWith(level, message);
+      logSpy.mockRestore();
+    });
+  });
+
+  it('should call the warn method on the plugin with the correct message', (): void => {
     const message: string = 'warn message';
+    const warnSpy: jest.SpyInstance<void, [message?: any, ...optionalParams: any[]]> = jest
+      .spyOn(mockPlugin, 'warn')
+      .mockImplementation(() => {});
+
     logger.warn(message);
-    expect(mockBackend.warn).toHaveBeenCalledWith(message);
+    expect(warnSpy).toHaveBeenCalledWith(message);
+    warnSpy.mockRestore();
   });
 });

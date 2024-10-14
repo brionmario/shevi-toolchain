@@ -1,7 +1,7 @@
 name: 📚 Documentation Improvement
 description: Suggest improvements to the documentation
 title: "[DOCS] <title>"
-labels: ["Documentation", "Needs Triage"]
+labels: ["documentation", "needs-triage"]
 body:
   - type: textarea
     attributes:

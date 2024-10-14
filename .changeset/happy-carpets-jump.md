@@ -1,35 +1,14 @@
-<p align="center" style="color: #343a40">
-  <h1 align="center">@shevi/logger 💖</h1>
-</p>
+---
+"@shevi/logger": minor
+---
 
-<p align="center" style="font-size: 1.2rem;">A
-<strong style="color: #F0F">pluggable</strong>
- logging utility for frontend developers.</p>
- 
-<div align="center">
-  <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@shevi/logger">
-  <img alt="npm" src="https://img.shields.io/npm/dw/@shevi/logger">
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
-</div>
+Implement a pluggable logger utility to enable easy logging for frontend developers. This utility should provide various logging levels (info, warn, error) and a flexible API for customization. It should also allow for future extension, such as integrating with third-party logging services or formats.
 
-## Installation
-
-To install `@shevi/logger`, run the following command:
-
-```sh
-# With npm
-npm install @shevi/logger
-
-# With pnpm
-pnpm add @shevi/logger
-
-# With yarn
-yarn add @shevi/logger
-```
-
-## Usage
-
-Here's an example of how to use `@shevi/logger`:
+This feature will introduce a logger utility that:
+- Supports logging levels: `info`, `warn`, `error`
+- Has a modular, pluggable architecture for custom logging extensions
+- Can be used throughout frontend applications to maintain consistent logging practices
+- Extensible to support future needs like integration with external logging platforms or advanced logging features
 
 ### Basic Usage
 
@@ -75,7 +54,3 @@ const logger = new Logger({
 // Log a message
 logger.info('This log will be handled by the custom plugin');
 ```
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

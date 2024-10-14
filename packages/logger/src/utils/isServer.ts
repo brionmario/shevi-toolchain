@@ -22,11 +22,16 @@
  * SOFTWARE.
  */
 
-export {default as Logger} from './Logger';
+import {DenoGlobal} from '../../types/globals';
 
-export * from './types/LogLevel';
-export * from './types/LoggerPlugin';
+const isNode: boolean = globalThis.process?.versions?.node !== undefined;
 
-export {default as ConsoleLoggerPlugin} from './plugins/ConsoleLoggerPlugin';
-export {default as DefaultLoggerPlugin} from './plugins/DefaultLoggerPlugin';
-export {default as ServerLoggerPlugin} from './plugins/ServerLoggerPlugin';
+const isBun: boolean = globalThis.process?.versions?.['bun'] !== undefined;
+
+const isDeno: boolean = (globalThis as typeof globalThis & {Deno?: DenoGlobal}).Deno?.version?.deno !== undefined;
+
+const isElectron: boolean = globalThis.process?.versions?.['electron'] !== undefined;
+
+const isServer: boolean = isNode || isBun || isDeno || isElectron;
+
+export default isServer;

@@ -22,11 +22,42 @@
  * SOFTWARE.
  */
 
-export {default as Logger} from './Logger';
+import {LogLevel} from './LogLevel';
 
-export * from './types/LogLevel';
-export * from './types/LoggerPlugin';
+export interface LoggerPlugin {
+  /**
+   * Optional debug level logging.
+   * @param message - The log message
+   * @param args - Additional arguments to log
+   */
+  debug?(message: string, ...args: unknown[]): void;
 
-export {default as ConsoleLoggerPlugin} from './plugins/ConsoleLoggerPlugin';
-export {default as DefaultLoggerPlugin} from './plugins/DefaultLoggerPlugin';
-export {default as ServerLoggerPlugin} from './plugins/ServerLoggerPlugin';
+  /**
+   * Error level logging.
+   * @param message - The log message
+   * @param args - Additional arguments to log
+   */
+  error(message: string, ...args: unknown[]): void;
+
+  /**
+   * Info level logging.
+   * @param message - The log message
+   * @param args - Additional arguments to log
+   */
+  info(message: string, ...args: unknown[]): void;
+
+  /**
+   * General log function for any level of logging.
+   * @param level - The log level
+   * @param message - The log message
+   * @param args - Additional arguments to log
+   */
+  log(level: LogLevel, message: string, ...args: unknown[]): void;
+
+  /**
+   * Warn level logging.
+   * @param message - The log message
+   * @param args - Additional arguments to log
+   */
+  warn(message: string, ...args: unknown[]): void;
+}

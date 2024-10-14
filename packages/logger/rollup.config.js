@@ -33,22 +33,23 @@ const path = require('path');
 const pkg = require('./package.json');
 
 const LIB_TSCONFIG = path.resolve(__dirname, 'tsconfig.lib.json');
+const INPUT = path.resolve(__dirname, 'src', 'index.ts');
 const MERGED_TYPINGS_INPUT = path.resolve(__dirname, path.join('dist', 'esm', 'types', 'index.d.ts'));
 const MERGED_TYPINGS_OUTPUT = path.resolve(__dirname, path.join('dist', 'index.d.ts'));
 
 module.exports = [
   {
     cache: false,
-    input: 'src/index.ts',
+    input: INPUT,
     output: [
       {
         file: pkg.main,
-        format: 'cjs',
+        format: 'esm',
         sourcemap: true,
       },
       {
-        file: pkg.module,
-        format: 'esm',
+        file: pkg.commonjs,
+        format: 'cjs',
         sourcemap: true,
       },
     ],

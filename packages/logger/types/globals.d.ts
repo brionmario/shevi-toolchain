@@ -22,11 +22,17 @@
  * SOFTWARE.
  */
 
-export {default as Logger} from './Logger';
+declare global {
+  interface WorkerGlobalScope {}
+  interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {}
+  interface SharedWorkerGlobalScope extends WorkerGlobalScope {}
+  interface ServiceWorkerGlobalScope extends WorkerGlobalScope {}
+}
 
-export * from './types/LogLevel';
-export * from './types/LoggerPlugin';
+export interface DenoGlobal {
+  version: {
+    deno: string;
+  };
+}
 
-export {default as ConsoleLoggerPlugin} from './plugins/ConsoleLoggerPlugin';
-export {default as DefaultLoggerPlugin} from './plugins/DefaultLoggerPlugin';
-export {default as ServerLoggerPlugin} from './plugins/ServerLoggerPlugin';
+export {};
